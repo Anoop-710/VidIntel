@@ -26,10 +26,10 @@ def save_output(summary, filename):
         doc.save(filename)
 
     else:
-        print("❌ Unsupported file format. Use .txt or .docx")
+        print("Unsupported file format. Use .txt or .docx")
         return
 
-    print(f"\n💾 Saved summary to {filename}")
+    print(f"\nSaved summary to {filename}")
 
 
 def split_text(text, max_words=500):

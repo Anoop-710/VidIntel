@@ -1,7 +1,7 @@
 import requests
 
 def summarize_text(text, model_name, mode):
-    print(f"🧠 Summarizing with model: {model_name} | mode: {mode}")
+    print(f"Summarizing with model: {model_name} | mode: {mode}")
 
     if mode == "meeting":
         prompt = f"""
@@ -217,7 +217,7 @@ def summarize_text(text, model_name, mode):
     )
     data = response.json()
     if "choices" not in data:
-        print("❌ Error from LM Studio:")
+        print(" Error from LM Studio:")
         print(data)
         return "Error: Failed to generate summary"
 

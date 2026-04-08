@@ -132,31 +132,31 @@ def main():
         print("\n Transcription:\n")
         print(transcript)
 
-    # 🧠 Summarization
-    print(f"🤖 Using model: {model}")
-    print(f"📝 Using mode: {mode}")
+    # Summarization
+    print(f" Using model: {model}")
+    print(f" Using mode: {mode}")
 
     chunks = split_text(transcript)
     all_summaries = []
 
     for i, chunk in enumerate(chunks):
-        print(f"\n🧩 Processing chunk {i+1}/{len(chunks)}...")
+        print(f"\n Processing chunk {i+1}/{len(chunks)}...")
 
         chunk_summary = summarize_text(chunk, model, mode)
         all_summaries.append(chunk_summary)
 
-    # 🔗 Combine summaries
+    #  Combine summaries
     combined_summary = "\n\n".join(all_summaries)
 
-    # 🧠 Final summarization
-    print("\n🧠 Generating final summary...")
+    #  Final summarization
+    print("\n Generating final summary...")
     final_summary = summarize_text(combined_summary, model, mode)
 
-    # 📌 Output
-    print("\n📌 Final Summary:\n")
+    #  Output
+    print("\n Final Summary:\n")
     print(final_summary)
 
-    # 💾 Save
+    # Save
     save_output(final_summary, output_file)
 
 if __name__ == "__main__":
