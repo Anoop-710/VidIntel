@@ -1,0 +1,5 @@
+**pycache**/
+_.pyc
+_.wav
+cache\_\*.txt
+.env
