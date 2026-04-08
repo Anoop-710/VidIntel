@@ -43,10 +43,10 @@ pip install -r requirements.txt
 
 ## Run (CLI)
 
--cd cli
--python main.py --interactive
+- cd cli
+- python main.py --interactive
 
 ## Requirements
 
--FFmpeg installed
--LM Studio running (localhost:1234)
+- FFmpeg installed
+- LM Studio running (localhost:1234)
