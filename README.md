@@ -35,18 +35,58 @@ This makes VidIntel ideal for:
 - Interactive CLI
 - Output formats: txt, docx
 
-## Setup
-
-```bash
-pip install -r requirements.txt
-```
-
 ## Run (CLI)
 
 - cd cli
 - python main.py --interactive
 
-## Requirements
+## 🔧 Prerequisites
 
-- FFmpeg installed
-- LM Studio running (localhost:1234)
+- Python 3.9+
+- FFmpeg installed and added to PATH
+
+Verify:
+
+````bash
+ffmpeg -version
+
+## ✅ LM Studio setup (VERY IMPORTANT)
+
+Users must:
+- Install LM Studio
+- Load a model
+- Start server
+
+Add:
+
+```md
+## 🤖 Local AI Setup (LM Studio)
+
+1. Install LM Studio
+2. Download a model (e.g., google/gemma-3-1b)
+3. Start the local server (default: http://localhost:1234)
+
+Verify:
+http://localhost:1234/v1/models
+````
+
+## Setup
+
+Install dependencies
+
+## 📦 Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+## ▶️ Run
+
+```bash
+cd cli
+python main.py --interactive
+
+Or:
+
+python main.py video.mp4 --mode meeting
+```
