@@ -1,4 +1,4 @@
-# VidIntel 🎬🧠
+# VidIntel 🎬🧠 - "Turn videos into insights — privately."
 
 VidIntel is a privacy-first, offline video intelligence tool that transforms video content into structured insights using local AI models.
 
