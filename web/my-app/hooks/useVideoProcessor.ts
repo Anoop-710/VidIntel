@@ -83,5 +83,6 @@ export function useVideoProcessor() {
     copied,
     copyToClipboard,
     handleSubmit,
+    showAlert,
   };
 }

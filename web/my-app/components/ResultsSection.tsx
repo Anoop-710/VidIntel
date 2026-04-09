@@ -51,7 +51,7 @@ export function ResultsSection({
           onClick={() => handleDownload(downloadPath)}
           className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 hover:border-emerald-500/50 rounded-lg text-emerald-200 font-medium transition-all duration-200"
         >
-          ↓ Download {isDocx ? "DOCX" : "TXT"}
+          Download {isDocx ? "DOCX" : "TXT"}
         </button>
       )}
     </div>
