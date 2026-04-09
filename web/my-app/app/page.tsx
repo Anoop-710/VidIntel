@@ -156,14 +156,16 @@ export default function Home() {
                   ⚠️ Setup Required (One-Time)
                 </h2>
                 <p className="text-slate-400">
-                  This application runs completely on your local machine to ensure privacy.
+                  This application runs completely on your local machine to
+                  ensure privacy.
                 </p>
               </div>
 
               {/* Setup Instructions */}
               <div className="mb-8 space-y-4">
                 <p className="text-slate-300 font-semibold">
-                  Before using, make sure you have completed the following steps:
+                  Before using, make sure you have completed the following
+                  steps:
                 </p>
 
                 <ol className="space-y-3 text-slate-300">
@@ -171,7 +173,9 @@ export default function Home() {
                     <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-600/30 border border-blue-500/50 text-sm font-semibold text-blue-300">
                       1
                     </span>
-                    <span>Install FFmpeg and ensure it is added to system PATH</span>
+                    <span>
+                      Install FFmpeg and ensure it is added to system PATH
+                    </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-600/30 border border-blue-500/50 text-sm font-semibold text-blue-300">
@@ -183,19 +187,26 @@ export default function Home() {
                     <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-600/30 border border-blue-500/50 text-sm font-semibold text-blue-300">
                       3
                     </span>
-                    <span>Download and load a model (e.g., google/gemma-3-1b)</span>
+                    <span>
+                      Download and load a model (e.g., google/gemma-3-1b)
+                    </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-600/30 border border-blue-500/50 text-sm font-semibold text-blue-300">
                       4
                     </span>
-                    <span>Start LM Studio local server (http://localhost:1234)</span>
+                    <span>
+                      Start LM Studio local server (http://localhost:1234)
+                    </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-blue-600/30 border border-blue-500/50 text-sm font-semibold text-blue-300">
                       5
                     </span>
-                    <span>Install Python dependencies (pip install -r requirements.txt)</span>
+                    <span>
+                      Install Python dependencies (pip install -r
+                      requirements.txt)
+                    </span>
                   </li>
                 </ol>
               </div>
@@ -203,7 +214,8 @@ export default function Home() {
               {/* Info Box */}
               <div className="bg-emerald-600/10 border border-emerald-500/30 rounded-lg p-4 mb-8">
                 <p className="text-emerald-200 text-sm">
-                  Once all steps are complete, you can upload videos and process them locally.
+                  Once all steps are complete, you can upload videos and process
+                  them locally.
                 </p>
               </div>
 

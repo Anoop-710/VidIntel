@@ -46,59 +46,99 @@ From project root:
 
 ```bash
 pip install -r requirements.txt
+```
 
-2. Install FFmpeg
+### 2. Install FFmpeg
+
 Download from: https://ffmpeg.org/download.html
+
 Add to system PATH
 
 Verify:
 
+```bash
 ffmpeg -version
+```
 
-3. Install LM Studio
+### 3. Install LM Studio
+
 Download from: https://lmstudio.ai/
-Open app
-Download a model:
-google/gemma-3-1b (recommended)
-qwen/qwen3-vl-4b
-Start local server
+
+Steps:
+
+1. Open app
+2. Download a model:
+   - `google/gemma-3-1b` (recommended)
+   - `qwen/qwen3-vl-4b`
+3. Start local server
 
 Verify:
 
+```bash
 http://localhost:1234/v1/models
-🚀 Run the Web App
+```
+
+---
+
+## 🚀 Run the Web App
+
+```bash
 cd web/my-app
 npm install
 npm run dev
+```
 
 Open browser:
 
+```
 http://localhost:3000
-🧠 How It Works
-Upload Video
-   ↓
-Next.js API
-   ↓
-Python CLI
-   ↓
-Whisper (Transcription)
-   ↓
-LM Studio (Summarization)
-   ↓
-Result in Browser
-⚠️ Notes
-Max recommended video size: 100–200 MB
-Ensure LM Studio is running before processing
-First run may take longer due to model loading
-🛠️ Troubleshooting
-❌ "File not found"
-Use absolute file path OR ensure file is uploaded correctly
-❌ LM Studio error
-Ensure model is loaded
-Ensure server is running
-❌ FFmpeg not found
-Ensure FFmpeg is installed and added to PATH
-🎯 Goal
 ```
 
-## Web Version
+---
+
+## 🧠 How It Works
+
+```
+Upload Video
+    ↓
+Next.js API
+    ↓
+Python CLI
+    ↓
+Whisper (Transcription)
+    ↓
+LM Studio (Summarization)
+    ↓
+Result in Browser
+```
+
+---
+
+## ⚠️ Notes
+
+- Max recommended video size: 100–200 MB
+- Ensure LM Studio is running before processing
+- First run may take longer due to model loading
+
+---
+
+## 🛠️ Troubleshooting
+
+### ❌ "File not found"
+
+- Use absolute file path OR ensure file is uploaded correctly
+
+### ❌ LM Studio error
+
+- Ensure model is loaded
+- Ensure server is running
+
+### ❌ FFmpeg not found
+
+- Ensure FFmpeg is installed and added to PATH
+
+---
+
+## 🎯 Goal
+
+Provide a streamlined, privacy-first web interface for local video processing using offline AI models.
