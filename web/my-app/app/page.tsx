@@ -1,7 +1,7 @@
 // page.tsx
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 
 interface AlertState {
@@ -22,19 +22,20 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [dragActive, setDragActive] = useState(false);
-  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const isTauri = "__TAURI_INTERNALS__" in window;
+    if (isTauri) return false;
+    const hasSeenOnboarding = window.localStorage.getItem(
+      "vidintel_onboarding_seen",
+    );
+    return !hasSeenOnboarding;
+  });
 
-  useEffect(() => {
-    const hasSeenOnboarding = localStorage.getItem("vidintel_onboarding_seen");
-    if (!hasSeenOnboarding) {
-      setShowOnboarding(true);
-    }
-  }, []);
-
-  const handleOnboardingContinue = () => {
+  function handleOnboardingContinue() {
     localStorage.setItem("vidintel_onboarding_seen", "true");
     setShowOnboarding(false);
-  };
+  }
 
   const showAlert = (type: "error" | "success", message: string) => {
     setAlert({ type, message });
@@ -129,6 +130,40 @@ export default function Home() {
     setLoading(false);
   };
 
+  async function handleDownload(fileName: string) {
+    const isTauri =
+      typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
+
+    if (isTauri) {
+      try {
+        const response = await fetch(
+          `/api/download?path=${encodeURIComponent(fileName)}`,
+        );
+
+        const blob = await response.blob();
+
+        const save = (window as any).__TAURI__?.dialog?.save;
+        const writeFile = (window as any).__TAURI__?.fs?.writeFile;
+
+        const filePath = await save({
+          defaultPath: fileName.split("/").pop(),
+        });
+
+        if (filePath) {
+          const buffer = await blob.arrayBuffer();
+          await writeFile({
+            path: filePath,
+            contents: new Uint8Array(buffer),
+          });
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      window.location.href = `/api/download?path=${encodeURIComponent(fileName)}`;
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 text-slate-100">
       {/* Alert */}
@@ -145,6 +180,7 @@ export default function Home() {
       )}
 
       {/* Onboarding Modal */}
+
       {showOnboarding && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl max-w-2xl w-full">
@@ -544,9 +580,8 @@ export default function Home() {
               {/* Download Button */}
               {downloadPath && (
                 <div>
-                  <a
-                    href={`/api/download?path=${encodeURIComponent(downloadPath)}`}
-                    download
+                  <button
+                    onClick={() => handleDownload(downloadPath)}
                     className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 hover:border-emerald-500/50 rounded-lg text-emerald-200 font-medium transition-all duration-200"
                   >
                     <svg
@@ -563,7 +598,7 @@ export default function Home() {
                       />
                     </svg>
                     Download {isDocx ? "DOCX" : "TXT"}
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
