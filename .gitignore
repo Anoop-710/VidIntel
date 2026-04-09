@@ -3,3 +3,32 @@ _.pyc
 _.wav
 cache\_\*.txt
 .env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Cache files
+cache_*.txt
+temp.wav
+tmp/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Output files
+output.txt
+output.docx

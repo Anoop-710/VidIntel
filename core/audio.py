@@ -5,6 +5,7 @@ def extract_audio(video_path):
 
     command = [
         "ffmpeg",
+        "-y",  # ✅ auto overwrite
         "-i", video_path,
         "-vn",
         "-acodec", "pcm_s16le",

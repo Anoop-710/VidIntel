@@ -90,3 +90,8 @@ Or:
 
 python main.py video.mp4 --mode meeting
 ```
+
+## Web Version
+
+See full guide here:
+[Web Setup Guide](web/my-app/README.md)

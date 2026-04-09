@@ -3,28 +3,28 @@ import os
 import hashlib
 import questionary
 
-from vid.cli.audio import extract_audio
-from vid.cli.transcribe import transcribe_audio
-from vid.cli.summarize import summarize_text
-from vid.cli.utils import get_cache_filename, save_output, split_text
+from core.audio import extract_audio
+from core.transcribe import transcribe_audio
+from core.summarize import summarize_text
+from core.utils import get_cache_filename, save_output, split_text
 
 
-def get_cache_filename(video_path):
-    # create unique hash for file path
-    file_hash = hashlib.md5(video_path.encode()).hexdigest()
-    return f"cache_{file_hash}.txt"
+# def get_cache_filename(video_path):
+#     # create unique hash for file path
+#     file_hash = hashlib.md5(video_path.encode()).hexdigest()
+#     return f"cache_{file_hash}.txt"
 
 
-def save_output(summary, filename="output.txt"):
-    with open(filename, "w", encoding="utf-8") as f:
-        f.write(summary)
+# def save_output(summary, filename="output.txt"):
+#     with open(filename, "w", encoding="utf-8") as f:
+#         f.write(summary)
 
-    print(f"\nSaved summary to {filename}")
+#     print(f"\nSaved summary to {filename}")
 
 
 
 def interactive_setup():
-    print("\nWelcome to VidSage Interactive Mode\n")
+    print("\nWelcome to VidIntel Interactive Mode\n")
 
     video_path = questionary.text("Enter video file path:").ask()
 
@@ -108,6 +108,10 @@ def main():
         print(" File not found!")
         return
 
+    file_size_mb = os.path.getsize(video_path) / (1024 * 1024)
+
+    if file_size_mb > 200:
+        print(f"⚠️ Large file detected ({file_size_mb:.2f} MB). Processing may be slow or may not work with local models.")
     print(f" Video file detected: {video_path}")
 
     # Extract audio

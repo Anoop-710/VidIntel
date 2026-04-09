@@ -20,9 +20,17 @@ def save_output(summary, filename):
         doc = Document()
         doc.add_heading("Video Summary", 0)
 
+        def clean_text(text):
+        # Remove markdown-like syntax
+            text = text.replace("**", "")
+            text = text.replace("---", "")
+            return text.strip()
+        
+        
         for line in summary.split("\n"):
-            doc.add_paragraph(line)
-
+            cleaned = clean_text(line)
+            if cleaned:  # avoid empty lines
+                doc.add_paragraph(cleaned)
         doc.save(filename)
 
     else:
@@ -41,4 +49,3 @@ def split_text(text, max_words=500):
         chunks.append(chunk)
 
     return chunks
-

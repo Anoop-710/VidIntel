@@ -156,7 +156,7 @@ def summarize_text(text, model_name, mode):
         You are a summarization assistant.
 
         Objective:
-        Extract only the most important points.
+        Extract only the most important points with one liner explanations.
 
         Source:
         Transcript text below.
@@ -164,8 +164,7 @@ def summarize_text(text, model_name, mode):
         Scope:
         - Output ONLY bullet points
         - No headings
-        - No explanation
-        - No repetition
+        - Do NOT add introduction or conclusion
 
         Output format:
         - Point 1
