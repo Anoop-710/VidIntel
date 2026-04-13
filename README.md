@@ -72,8 +72,9 @@ ffmpeg -version
 
 1. Install LM Studio from https://lmstudio.ai/
 2. Download a model:
-   - `google/gemma-3-1b` (recommended)
+   - `google/gemma-3-1b` (recommended for low end machines)
    - `qwen/qwen3-vl-4b`
+   - `custom model`
 3. Start local server
 
 Verify:
